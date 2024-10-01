@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="container">
         <div class="login-box">
-            <h2>Login</h2>
-            <form action="../index/index.html" method="GET">
+            <h2>Sign Up</h2>
+            <form action="../login/login.html" method="GET">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Log In</button>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Signup</button>
             </form>
-            <p>Don't have an account? <a href="../signup/signup.html">Sign Up</a></p>
+            <p>Already have an account? <a href="../login/login.html">Login</a></p>
         </div>
     </div>
 </body>
