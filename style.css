@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-size: fill;
+    overflow: hidden;
+}
+
+.navbar {
+    background-color: #FF0051;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    color: yellow;
+}
+
+.navbar ul .login-button {
+    margin-left: auto;
+}
+
+.translucent-box {
+    background-color: rgba(66, 66, 66, 0.6); /* White with 80% opacity */
+    width: 100%;
+    height: calc(100vh - 10vh); /* Full height minus the navbar height */
+    position: absolute;
+    top: 10vh; /* Start just below the navbar */
+    left: 0;
+}
