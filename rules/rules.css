@@ -9,7 +9,7 @@ body {
 /* Navbar styles */
 .navbar {
     background-color: #FF0051;
-    height: 15vh;
+    height: 10vh;
     width: 100%;
     display: flex;
     align-items: center;

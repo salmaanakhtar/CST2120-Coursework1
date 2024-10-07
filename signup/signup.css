@@ -1,12 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #4682B4;
+    /* background-color: #4682B4; */
     font-family: Arial, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -17,7 +20,7 @@ body {
     width: 100%;
 }
 
-.login-box {
+.signup-box {
     background-color: white;
     padding: 40px;
     border-radius: 15px;
@@ -27,12 +30,12 @@ body {
 }
 
 
-.login-box h2 {
+.signup-box h2 {
     margin-bottom: 20px;
     color: black;
 }
 
-.login-box label {
+.signup-box label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
@@ -40,7 +43,7 @@ body {
     font-size: 14px;
 }
 
-.login-box input {
+.signup-box input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -48,7 +51,7 @@ body {
     border-radius: 5px;
 }
 
-.login-box button {
+.signup-box button {
     width: 100%;
     padding: 10px;
     background-color: #FF0051;
@@ -59,6 +62,6 @@ body {
     font-size: 16px;
 }
 
-.login-box button:hover {
+.signup-box button:hover {
     background-color: darkpink;
 }
