@@ -7,11 +7,19 @@ body {
     text-align: center;
 }
 
-#score {
+#score, #lives {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: white;
+}
+
+#lives {
+    font-size: 30px;
+}
+
+.heart {
+    margin: 0 5px;
 }
 
 #play-button {

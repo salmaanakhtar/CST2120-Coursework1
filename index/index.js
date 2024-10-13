@@ -19,11 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutButton.style.display = 'none';
     }
 
+    // Game logic
     const moles = document.querySelectorAll('.mole');
     const holes = document.querySelectorAll('.circle');
     const scoreDisplay = document.getElementById('score-value');
     const playButton = document.getElementById('play-button');
+    const livesDisplay = document.getElementById('lives');
     let score = 0;
+    let lives = 3;
     let gameOver = true;
 
     function randomTime(min, max) {
@@ -45,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }, time);
     }
 
+    function updateLives() {
+        livesDisplay.innerHTML = '❤️'.repeat(lives);
+    }
+
     holes.forEach(hole => {
         hole.addEventListener('click', () => {
             if (gameOver) return;
@@ -52,24 +59,43 @@ document.addEventListener("DOMContentLoaded", function () {
             if (mole.classList.contains('show')) {
                 score++;
                 mole.classList.remove('show');
+                scoreDisplay.textContent = score;
             } else {
-                score = Math.max(0, score - 1);
+                lives--;
+                updateLives();
+                if (lives === 0) {
+                    endGame();
+                }
             }
-            scoreDisplay.textContent = score;
         });
     });
 
     function startGame() {
-        scoreDisplay.textContent = '0';
         score = 0;
+        lives = 3;
         gameOver = false;
+        scoreDisplay.textContent = '0';
+        updateLives();
         playButton.style.display = 'none';
         showMole();
-        setTimeout(() => {
-            gameOver = true;
-            playButton.style.display = 'inline-block';
-            playButton.textContent = 'Play Again';
-        }, 60000);
+    }
+
+    function endGame() {
+        gameOver = true;
+        playButton.style.display = 'inline-block';
+        playButton.textContent = 'Play Again';
+        saveScore();
+    }
+
+    function saveScore() {
+        if (loggedInUser && loggedInUser.isLoggedIn) {
+            const username = loggedInUser.username;
+            let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+            leaderboard.push({ username, score });
+            leaderboard.sort((a, b) => b.score - a.score);
+            leaderboard = leaderboard.slice(0, 10); // Keep only top 10 scores
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+        }
     }
 
     playButton.addEventListener('click', startGame);
