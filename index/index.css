@@ -1,3 +1,65 @@
-body{
+body {
     background-image: url("../assets/content-image.webp");
+}
+
+#game-container {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#play-button {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#play-button:hover {
+    background-color: #45a049;
+}
+
+.circle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.circle {
+    width: 160px;
+    height: 200px;
+    background-color: rgb(75, 21, 21);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.mole {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    transition: transform 0.1s;
+}
+
+.mole.show {
+    transform: translateX(-50%) translateY(0);
 }
