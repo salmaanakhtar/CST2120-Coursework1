@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: user.email,
                 isLoggedIn: true
             };
+            
             localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
             console.log('Stored logged-in user separately:', loggedInUser);
 

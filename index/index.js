@@ -71,13 +71,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function startGame() {
-        score = 0;
-        lives = 3;
-        gameOver = false;
-        scoreDisplay.textContent = '0';
-        updateLives();
-        playButton.style.display = 'none';
-        showMole();
+        if(!loggedInUser || !loggedInUser.isLoggedIn) {
+            score = 0;
+            lives = 3;
+            gameOver = false;
+            scoreDisplay.textContent = '0';
+            updateLives();
+            playButton.style.display = 'none';
+            showMole();
+        }
     }
 
     function endGame() {
