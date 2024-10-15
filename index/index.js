@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
             leaderboard.push({ username, score });
             leaderboard.sort((a, b) => b.score - a.score);
-            leaderboard = leaderboard.slice(0, 10); // Keep only top 10 scores
+            leaderboard = leaderboard.slice(0, 10);
             localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
         }
     }
