@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-#score, #lives {
+#score, #lives, #wave-display {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -70,4 +70,8 @@ body {
 
 .mole.show {
     transform: translateX(-50%) translateY(0);
+}
+
+.mole.cat {
+    background-color: green;
 }
