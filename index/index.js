@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let molesInWave = 10;
     let moleSpeed = { min: 1000, max: 2000 };
     let catChance = 0;
+    
 
     function randomTime(min, max) {
         return Math.round(Math.random() * (max - min) + min);
@@ -54,7 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         mole.classList.add('show');
+        mole.dataset.clicked = 'false'; // Add this line to track if the mole was clicked
+
         setTimeout(() => {
+            if (mole.dataset.clicked === 'false' && !mole.classList.contains('cat')) {
+                // Subtract points if the mole wasn't clicked and it wasn't a cat
+                score = Math.max(0, score - penaltyPoints);
+                scoreDisplay.textContent = score;
+            }
             mole.classList.remove('show', 'cat');
             molesInWave--;
             if (molesInWave > 0) {
@@ -80,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         moleSpeed.min = Math.max(500, 1000 - currentWave * 50);
         moleSpeed.max = Math.max(1000, 2000 - currentWave * 100);
         catChance = Math.min(0.1, currentWave * 0.01);
+        penaltyPoints = Math.min(3, 1 + Math.floor(currentWave / 3)); // Increase penalty points every 3 waves, up to a maximum of 5
 
         setTimeout(() => {
             if (!gameOver) {
@@ -107,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (gameOver) return;
             const mole = hole.querySelector('.mole');
             if (mole.classList.contains('show')) {
+                mole.dataset.clicked = 'true'; // Mark the mole as clicked
                 if (mole.classList.contains('cat')) {
                     endGame();
                 } else {
@@ -132,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             molesInWave = 10;
             moleSpeed = { min: 1000, max: 2000 };
             catChance = 0;
+            penaltyPoints = 1; // Reset penalty points at the start of the game
             gameOver = false;
             scoreDisplay.textContent = '0';
             updateLives();
