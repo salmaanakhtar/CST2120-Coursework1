@@ -55,11 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         mole.classList.add('show');
-        mole.dataset.clicked = 'false'; // Add this line to track if the mole was clicked
+        mole.dataset.clicked = 'false';
 
         setTimeout(() => {
             if (mole.dataset.clicked === 'false' && !mole.classList.contains('cat')) {
-                // Subtract points if the mole wasn't clicked and it wasn't a cat
                 score = Math.max(0, score - penaltyPoints);
                 scoreDisplay.textContent = score;
             }
@@ -88,8 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         moleSpeed.min = Math.max(500, 1000 - currentWave * 50);
         moleSpeed.max = Math.max(1000, 2000 - currentWave * 100);
         catChance = Math.min(0.1, currentWave * 0.01);
-        penaltyPoints = Math.min(3, 1 + Math.floor(currentWave / 3)); // Increase penalty points every 3 waves, up to a maximum of 5
-
+        penaltyPoints = Math.min(3, 1 + Math.floor(currentWave / 3));
         setTimeout(() => {
             if (!gameOver) {
                 showMole();
@@ -116,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (gameOver) return;
             const mole = hole.querySelector('.mole');
             if (mole.classList.contains('show')) {
-                mole.dataset.clicked = 'true'; // Mark the mole as clicked
+                mole.dataset.clicked = 'true';
                 if (mole.classList.contains('cat')) {
                     endGame();
                 } else {
@@ -142,12 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
             molesInWave = 10;
             moleSpeed = { min: 1000, max: 2000 };
             catChance = 0;
-            penaltyPoints = 1; // Reset penalty points at the start of the game
+            penaltyPoints = 1;
             gameOver = false;
             scoreDisplay.textContent = '0';
             updateLives();
             updateWaveDisplay();
             playButton.style.display = 'none';
+            document.body.classList.add('game-active');
             showMole();
         } else {
             alert("Please log in to play the game!");
@@ -159,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gameOver = true;
         playButton.style.display = 'inline-block';
         playButton.textContent = 'Play Again';
+        document.body.classList.remove('game-active');
         saveScore();
     }
 
