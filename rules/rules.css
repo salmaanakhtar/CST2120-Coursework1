@@ -34,8 +34,8 @@ li {
 }
 
 .rules-container img {
-    width: 24px; /* Set icon size */
-    height: 24px; /* Set icon size */
-    vertical-align: middle; /* Align image vertically with text */
-    margin-left: 5px; /* Add space between text and image */
+    width: 24px;
+    height: 24px; 
+    vertical-align: middle; 
+    margin-left: 5px; 
 }
