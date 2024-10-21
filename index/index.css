@@ -1,5 +1,6 @@
 body {
     background-image: url("../assets/content-image.webp");
+    cursor: url('../assets/hammer.cur'), auto;
 }
 
 #game-container {
@@ -93,4 +94,7 @@ body {
     background-image: url('../assets/cat.svg');
 }
 
+body.game-active .circle {
+    cursor: url('../assets/hammer.cur'), auto;
+}
 
