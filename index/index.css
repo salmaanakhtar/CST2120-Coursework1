@@ -98,3 +98,10 @@ body.game-active .circle {
     cursor: url('../assets/hammer.cur'), auto;
 }
 
+.username {
+    text-decoration: none;
+    color: #6646B4;
+    font-size: 27px;
+    font-weight: bold;
+    display: none;
+}
