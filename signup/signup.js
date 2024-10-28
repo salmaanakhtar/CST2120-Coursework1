@@ -14,35 +14,59 @@ document.addEventListener('DOMContentLoaded', function() {
         const usernameExists = users.some(user => user.username === username);
         const emailExists = users.some(user => user.email === email);
 
+        const signupForm = document.querySelector('form');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.field-error, .error-message, .success-message');
+            errorElements.forEach(element => {
+                element.style.display = 'none';
+                element.textContent = '';
+            });
+        }
+
+        function showFieldError(fieldId, message) {
+            const errorElement = document.getElementById(`${fieldId}-error`);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+        }
+
         if (usernameExists) {
-            alert("Username already exists!");
-            return;
+            showFieldError('username', 'Username already exists!');
+            hasError = true;
         }
 
         if (emailExists) {
-            alert("Email already exists!");
-            return;
+            showFieldError('email', 'Email already exists!');
+            hasError = true;
         }
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
+            showFieldError('confirm-password', 'Passwords do not match!');
+            hasError = true;
         }
 
-        const userData = {
-            username: username,
-            email: email,
-            password: password,
-            isLoggedIn: false
-        };
+        if (!hasError) {
+            const userData = {
+                username: username,
+                email: email,
+                password: password,
+                isLoggedIn: false
+            };
 
-        users.push(userData);
+            users.push(userData);
+            localStorage.setItem('users', JSON.stringify(users));
 
-        localStorage.setItem('users', JSON.stringify(users));
+            successMessage.textContent = 'Signup successful! Redirecting to login page...';
+            successMessage.style.display = 'block';
 
-        alert('Signup successful! Please log in.');
-        
-        window.location.href = '../login/login.html';
+            setTimeout(() => {
+                window.location.href = '../login/login.html';
+            }, 2000);
+        }
     });
 });
 

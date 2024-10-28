@@ -64,3 +64,17 @@ body {
 .login-box button:hover {
     background-color: darkpink;
 }
+
+.error-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 8px 0;
+    display: none;
+}
+
+.success-message {
+    color: #16a34a;
+    font-size: 14px;
+    margin: 8px 0;
+    display: none;
+}

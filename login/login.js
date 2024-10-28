@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('users', JSON.stringify(users));
             console.log('Updated users in localStorage');
 
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
             const loggedInUser = {
                 username: user.username,
                 email: user.email,
@@ -49,12 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
             console.log('Stored logged-in user separately:', loggedInUser);
 
-            alert('Login successful!');
             console.log('Redirecting to index page...');
-            window.location.href = '../index/index.html';
+            setTimeout(() => {
+                window.location.href = '../index/index.html';
+            }, 1500);
         } else {
             console.log('Login failed - Invalid username or password');
-            alert('Invalid username or password!');
+            errorMessage.textContent = 'Invalid username or password!';
+            errorMessage.style.display = 'block';
         }
     });
 });

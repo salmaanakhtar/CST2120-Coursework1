@@ -64,3 +64,30 @@ body {
 .signup-box button:hover {
     background-color: darkpink;
 }
+
+.error-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 8px 0;
+    display: none;
+}
+
+.success-message {
+    color: #16a34a;
+    font-size: 14px;
+    margin: 8px 0;
+    display: none;
+}
+
+/* Add margin to field containers for better spacing */
+.field-container {
+    margin-bottom: 16px;
+}
+
+/* Add inline error messages under each field */
+.field-error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
