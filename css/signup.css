@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/background.webp");
+    background-image: url("../assets/images/background.webp");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -79,12 +79,10 @@ body {
     display: none;
 }
 
-/* Add margin to field containers for better spacing */
 .field-container {
     margin-bottom: 16px;
 }
 
-/* Add inline error messages under each field */
 .field-error {
     color: #dc2626;
     font-size: 12px;
